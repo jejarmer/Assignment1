@@ -20,10 +20,13 @@ if (isset($_GET['first']) && isset($_GET['last'])&& isset($_GET['age'])) {
 		echo htmlspecialchars("Hello, my name is $firstname $lastname. ");
 		echo htmlspecialchars("I am $age years old and ");
 		if ($age >= 18){
-		echo htmlspecialchars("I am old enough to vote in the United States.");
+		echo htmlspecialchars("I am old enough to vote in the United States. ");
 		}
 		else{
-			echo htmlspecialchars("I am not old enough to vote in the United States.");
+			echo htmlspecialchars("I am not old enough to vote in the United States. ");
+			$yearsleft = 18-$age;
+			$daysleft = 365*$yearsleft;
+			echo htmlspecialchars("I will be able to vote in about $daysleft days. ");
 		}
 	}
 	
@@ -34,6 +37,8 @@ if (isset($_GET['first']) && isset($_GET['last'])&& isset($_GET['age'])) {
 else {
     echo "Not set!";
 }
+echo "<br><br>";
+echo date("m/d/y");
 ?>
 
 <!DOCTYPE html>
